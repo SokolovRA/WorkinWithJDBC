@@ -15,7 +15,7 @@ public class Application {
         try (final Connection connection = DriverManager.getConnection(url, user, password);
              PreparedStatement statement = connection.prepareStatement(" SELECT * FROM employee " +
                      "RIGHT JOIN city ON employee.city_id = city.city_id " +
-                     " WHERE id = (?) ")) {
+                     " WHERE id = (?)")) {
 
             statement.setInt(1, 2);
 
@@ -26,7 +26,7 @@ public class Application {
                 String first_name = "First_name: " + resultSet.getString("first_name");
                 String last_name = "Last_name: " + resultSet.getString("last_name");
                 String gender = "Gender: " + resultSet.getString("gender");
-                String city_name = "City_name:  " + resultSet.getString("city_name");
+                String city_name = "City_name: " + resultSet.getString("city_name");
 
                 System.out.println(first_name);
                 System.out.println(last_name);

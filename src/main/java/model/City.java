@@ -41,7 +41,7 @@ public class City {
 
     @Override
     public String toString() {
-        return "Город: " +
+        return "Город:  " +
                 "id - " + city_id +
                 ", " + city_name;
     }

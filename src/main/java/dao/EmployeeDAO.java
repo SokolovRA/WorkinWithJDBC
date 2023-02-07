@@ -11,6 +11,6 @@ public interface EmployeeDAO {
 
     void update(int id,int city_id);
 
-    void delete(int id);
+    void delete( int id );
 
 }

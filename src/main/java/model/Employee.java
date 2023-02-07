@@ -26,7 +26,7 @@ public class Employee {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.gender = gender;
+        this.gender = gender ;
         this.age = age;
         this.city = city;
     }

@@ -19,8 +19,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void create(Employee employee) {
-        try(PreparedStatement statement = connection.prepareStatement("INSERT INTO employee (first_name,last_name,gender,age,city_id )" +
-                "VALUES ((?),(?),(?),(?),(?))")) {
+        try(PreparedStatement statement = connection.prepareStatement(" INSERT INTO employee (first_name,last_name,gender,age,city_id )" +
+                "VALUES ((?),(?),(?),(?),(?)) ")) {
 
             statement.setString(1, employee.getFirst_name());
             statement.setString(2,employee.getLast_name());
