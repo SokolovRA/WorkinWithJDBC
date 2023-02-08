@@ -17,38 +17,30 @@ public class Employee {
     private String gender;
     @Column(name = "age")
     private Integer age;
-    @Column(name = "city_id")
-    private Integer city;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city_id")
+    private City city;
 
     public Employee() {
     }
 
-    public Employee(String first_name, String last_name, String gender, int age, int city) {
+    public Employee(String first_name, String last_name, String gender, int age) {
         this.firstName = first_name;
         this.lastName = last_name;
         this.gender = gender;
         this.age = age;
-        this.city = city;
+
     }
 
 
-    public Employee(int id, String first_name, String last_name, String gender, int age, int city) {
-        this.id = id;
-        this.firstName = first_name;
-        this.lastName = last_name;
-        this.gender = gender ;
-        this.age = age;
-        this.city = city;
-    }
 
-    public int getCity() {
+    public City getCity() {
         return city;
     }
 
-    public void setCity(int city) {
+    public void setCity(City city) {
         this.city = city;
     }
-
 
     public int getId() {
         return id;
@@ -96,13 +88,14 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return id == employee.id && age == employee.age && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(gender, employee.gender) && Objects.equals(city, employee.city);
+        return Objects.equals(id, employee.id) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(gender, employee.gender) && Objects.equals(age, employee.age) && Objects.equals(city, employee.city);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, gender, age, city);
     }
+
 
     @Override
     public String toString() {
