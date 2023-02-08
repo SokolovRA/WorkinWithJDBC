@@ -9,8 +9,8 @@ public interface EmployeeDAO {
 
     List<Employee> readAll();
 
-    void update(int id,int city_id);
+    void update(Employee employee);
 
-    void delete(int id);
+    void delete( Employee employee);
 
 }
